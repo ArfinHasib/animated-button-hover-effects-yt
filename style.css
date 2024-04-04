@@ -1,0 +1,84 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Oswald:wght@200..700&display=swap');
+
+body {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+   background-color: #e0e0e0;
+   font-family: 'Kanit', sans-serif;
+}
+
+.container {
+   position: relative;
+   display: flex;
+   justify-content: center;
+   margin-top: 25%;
+}
+
+.button {
+   all: unset;
+   width: 100px;
+   height: 30px;
+   font-size: 17px;
+   background: transparent;
+   border: none;
+   position: relative;
+   color: #f0f0f0;
+   cursor: pointer;
+   z-index: 1;
+   padding: 10px 20px;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   white-space: nowrap;
+   user-select: none;
+   -webkit-user-select: none;
+   touch-action: manipulation;
+}
+
+.button::after,
+.button::before {
+   content: '';
+   position: absolute;
+   bottom: 0;
+   right: 0;
+   z-index: -9999;
+   transition: all 0.4s;
+}
+
+.button::before {
+   transform: translate(0%, 0%);
+   width: 100%;
+   height: 100%;
+   background-image: linear-gradient(to right, #6a11cb 0%, #2575fc 100%);
+   border-radius: 10px;
+}
+
+.button::after {
+   transform: translate(10px, 10px);
+   width: 35px;
+   height: 35px;
+   background: #ffffff15;
+   backdrop-filter: blur(5px);
+   -webkit-backdrop-filter: blur(5px);
+   border-radius: 50px;
+}
+
+/* Hover Effects */
+.button:hover::before {
+   transform: translate(5%, 20%);
+   width: 110%;
+   height: 110%;
+}
+
+.button:hover::after {
+   border-radius: 10px;
+   transform: translate(0, 0);
+   width: 100%;
+   height: 100%;
+}
+
+.button:active::after {
+   transition: 0s;
+   transform: translate(0, 5%);
+}
